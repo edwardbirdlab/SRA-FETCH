@@ -20,7 +20,7 @@ workflow READ_QC_SR {
         //ch_trimmed_fastq        = Channel.empty()
 
 
-        RAW_FASTQC(fastqs)
+        //RAW_FASTQC(fastqs)
         FASTP(fastqs)
         TRIM_FASTQC(FASTP.out.trimmed_fastq)
     emit:
