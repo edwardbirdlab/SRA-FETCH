@@ -3,9 +3,7 @@
 nextflow.enable.dsl=2
 
 
-ch_sras = Channel.fromSRA(params.sample_sheet) \
-    | splitCsv(header:true) \
-    | map { row-> row.acc }
+ch_sras = Channel.fromSRA((params.sample_sheet | splitCsv(header:true) | map { row-> row.acc }), apiKey: params.apikey)
 
 include { FETCH_SRA_PE as FETCH_SRA_PE } from './workflows/FETCH_SRA_PE.nf'
 include { SR_MULTIQC as SR_MULTIQC } from './workflows/SR_MULTIQC.nf'
