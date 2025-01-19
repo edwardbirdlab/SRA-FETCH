@@ -23,7 +23,7 @@ workflow {
 
     if (params.workflow_opt == 'paired') {
 
-        FETCH_SRA_PE(ch_fastqs)
+        FETCH_SRA_PE(reads)
 
         }
 
